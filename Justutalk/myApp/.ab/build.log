@@ -1,4 +1,0 @@
-Project "myApp.tmp.proj" (default targets):
-	android Build Tooling revision 2015.4.28.5r
-	Warning: [aapt]     (skipping dir '.idea' due to ANDROID_AAPT_IGNORE pattern '.*')
-Done building project "myApp.tmp.proj".
