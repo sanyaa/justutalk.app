@@ -31,7 +31,7 @@ var App = (function () {
     document.addEventListener('deviceready', function () {
         //var ref = window.open('http://localhost:63342/Sushi/sushi-angular.html', '_blank', 'location=yes');
         //ref.close();
-		alert('hello');
+		//alert('hello');
 
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
