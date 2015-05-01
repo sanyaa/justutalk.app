@@ -1,0 +1,74 @@
+<div data-role="view"  data-layout="main"  data-title="Rates">
+    <ul data-role="listview"
+        data-source="foo"
+        data-pull-to-refresh="true"
+        data-append-on-refresh="true"
+        data-template="foo-template-2"
+        data-style="inset" >
+    </ul>
+</div>
+
+<script type="text/x-kendo-template" id="foo-template">
+    <a onclick="goTo('detail.html')" >#: data.name #</a>
+</script>
+
+<script type="text/x-kendo-template" id="foo-template-2">
+
+     <a href="\#detailView?id=#: data.id #">#: data.name # </a>
+
+</script>
+
+
+
+<div data-role="view"  data-layout="main"
+     data-title="detail"
+     id="detailView"
+     data-transition="slide"
+     data-show="getRateDetails">
+        <ul data-role="listview">
+            <div id="rate-name"></div>
+        </ul>
+</div>
+
+<script>
+
+    var foo = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "http://excitenet.co.uk/get-json",
+                dataType: "jsonp"
+                //data: { q: "html5" }
+            }
+        },
+        schema: {
+            data:'data',
+            total: "total",
+            model: {
+                id: "id",
+                fields: {
+                    id: { type: "number" },
+                    name: { type: "string" }
+                }
+            }/*,
+             errors: "Errors",
+             error: function(e){
+             console.log(e);
+             //console.log(errors);
+             alert('error occured');
+             //this.cancelChanges();
+             }*/
+        }
+    });
+
+    function getRateDetails(e){
+        var id = e.view.params.id;
+        var item = foo.get(id);
+
+        $("#rate-name").html(item.name);
+        console.dir(id);
+        console.dir(foo.get(id));
+    }
+
+
+
+</script>

@@ -1,0 +1,68 @@
+<div data-role="view"  data-layout="main"  data-title="Simple Filter" data-init="showFilter">
+
+    <ul id="listViewContainer" > </ul>
+    <h2>Notes</h2>
+    <div>
+        <p> Remove 'a' tag in list to remove the arrow at right of list items. </p>
+        <p> Renders listview via code. </p>
+        <p> search box appears multi times if u use data-show. use data-init instead. </p>
+    </div>
+
+</div>
+
+<script type="text/x-kendo-template" id="foo-template">
+    <span >#: name #</span>
+</script>
+
+<script>
+
+
+    function getRateDetails(e){
+        var id = e.view.params.id;
+        var item = foo.get(id);
+
+        $("#rate-name").html(item.name);
+        console.dir(id);
+        console.dir(foo.get(id));
+    }
+
+    function showFilter(e) {
+
+         $('#listViewContainer').kendoMobileListView({
+
+            dataSource: new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "http://excitenet.co.uk/get-json",
+                        dataType: "jsonp"
+                    }
+                },
+                schema: {
+                    data:'data',
+                    total: "total",
+                    model: {
+                        id: "id",
+                        fields: {
+                            id: { type: "number" },
+                            name: { type: "string" }
+                        }
+                    }
+                }
+
+            }),
+
+            template: kendo.template($("#foo-template").html()),
+            //template: '#: name #',
+            filterable: {
+                "field": "name",
+                "autoFilter": true,
+                "operator": "contains"
+            }
+        });
+
+
+    }
+
+
+
+</script>

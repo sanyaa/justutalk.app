@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Node.js v0.10.32 Core Modules" level="application" />
+    <orderEntry type="library" name="KendoUI" level="project" />
+    <orderEntry type="library" name="ExtJS 4.2" level="project" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://C:/SDKs/drupal-7.34/drupal-7.34/modules" />
+          <root url="file://C:/SDKs/drupal-7.34/drupal-7.34/includes" />
+          <root url="file://C:/SDKs/drupal-7.34/drupal-7.34/sites/all/modules" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://C:/SDKs/drupal-7.34/drupal-7.34/modules" />
+          <root url="file://C:/SDKs/drupal-7.34/drupal-7.34/includes" />
+          <root url="file://C:/SDKs/drupal-7.34/drupal-7.34/sites/all/modules" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="cordova.android" level="project" />
+    <orderEntry type="library" name="Node.js v0.10.32 Core Modules" level="application" />
+  </component>
+</module>

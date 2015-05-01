@@ -1,0 +1,22 @@
+<div data-role="view" data-title="About" data-layout="main" >
+
+    About
+
+    <!--<ul data-role="listview" data-style="inset"
+        data-template="aboutTemplate"
+        data-bind="source: ds">
+
+
+
+    </ul>-->
+
+</div>
+
+
+
+
+<!-- this is the template used by the listview. template items are automatically
+     wrapped in an <li> by Kendo UI Mobile -->
+<script type="text/x-kendo-template" id="aboutTemplate">
+    <a data-bind="click: alert">#: data.name #</a>
+</script>

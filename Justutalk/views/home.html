@@ -1,0 +1,257 @@
+<div data-role="view" data-title="Home" data-layout="main" data-init="mobileListViewHeadersInit"
+     id="listview-headers" class="no-backbutton">
+
+
+    <div  id="scrollview-home" >
+        <div id="scrollview-container">
+            <div data-role="scrollview" data-page="0" data>
+                <div class="photo photo1" data-role="page"></div>
+                <div class="photo photo2" data-role="page"></div>
+                <div class="photo photo3" data-role="page"></div>
+                <div class="photo photo4" data-role="page"></div>
+            </div>
+        </div>
+    </div>
+
+    <ul data-role="listview" data-style="inset" data-type="group">
+
+        <li>Services
+            <ul>
+                <li data-icon="inbox"><a href="#views/filter-complex.html" >Pinless Call</a></li>
+                <li data-icon="star"><a href="#views/filter.html" >Hot Number</a></li>
+                <li data-icon="star"><a href="#views/filter.html" >Our Apps</a></li>
+            </ul>
+        </li>
+        <li>Package Deals
+            <ul id="fixed-listview"></ul>
+        </li>
+
+    </ul>
+
+
+</div>
+
+<!--<div data-role="view" id="listview-headers" data-init="mobileListViewHeadersInit" data-title="Fixed Headers">
+
+</div>-->
+
+
+
+<script type="text/x-kendo-template" id="listviewHeadersTemplate">
+    <!--<img class="item-photo" src="${url}" />-->
+    <h3 class="item-title">${name}</h3>
+    <p class="item-info">${description}</p>
+    <a data-role="button" class="details-link">Buy</a>
+</script>
+
+<script>
+    var groupedData = [
+        { name: "Sashimi Salad", description: "Organic greens topped with market fresh sashimi, wasabi soy vinaigrette.", url: "/myApp/images/california-rolls.jpg", letter: "S" },
+        { name: "Seaweed Salad", description: "A nice seaweed salad.", url: "/myApp/images/tekka-maki.jpg", letter: "S" },
+        { name: "Edamame", description: "Boiled soy beans with salt.", url: "/myApp/images/california-rolls.jpg", letter: "E" },
+        { name: "Maguro", description: "Tuna pieces.", url: "/myApp/images/tekka-maki.jpg", letter: "M" },
+
+    ];
+
+    function mobileListViewHeadersInit() {
+        $("#fixed-listview").kendoMobileListView({
+            dataSource: kendo.data.DataSource.create({data: groupedData }),
+            //dataSource: kendo.data.DataSource.create({data: groupedData, group: "letter" }),
+            template: $("#listviewHeadersTemplate").html()
+            //headerTemplate: "${value}",
+            //fixedHeaders: true
+        });
+    }
+</script>
+
+<style>
+
+    .no-backbutton .km-back { visibility: hidden; display: none; }
+
+    .item-photo {
+        width: 2em;
+        height: 2em;
+        float: left;
+        margin: .5em 0;
+        border: 1px solid rgba(0,0,0,.2);
+        -webkit-border-radius: 4em;
+        border-radius: 4em;
+    }
+
+    #fixed-listview .item-title {
+        float: left;
+        font-size: 1em;
+        line-height: 1.4em;
+        margin: 0.3em 1em 0 0;
+        width: 50%;
+    }
+    #fixed-listview .item-info {
+        float: left;
+        font-size: .7em;
+        line-height: 1em;
+        margin: 0 0 0 0;
+        width: 45%;
+    }
+
+    #fixed-listview a.details-link.km-widget.km-button {
+        background: rgba(249, 175, 42, 1);
+        border: none;
+    }
+
+    .details-link {
+        margin-top: -1.2em;
+        position: absolute;
+        right: 0.6em;
+        top: 50%;
+    }
+    .km-listview .km-list {
+        margin: 0;
+    }
+
+
+    .km-group-title {
+
+        font-weight: bold !important;
+        text-transform: uppercase;
+        color: rgba(104,104,104,0.6);
+
+    }
+</style>
+
+
+<style>
+
+    #button-home .km-button {
+        border: none !important;
+        /*display: table-cell !important;
+        width: 30%;*/
+    }
+
+
+    .km-upload:after,
+    .km-upload:before
+    {
+        content: "\260E";
+    }
+
+    .km-upload, .km-mycustomicon
+    {
+        font-size: 3.2em !important;
+        /*display: table-cell !important;
+        clear: both;
+        margin: auto;
+        text-align: center;
+        padding-left: 10px;*/
+    }
+
+    .km-mycustomicon:after,
+    .km-mycustomicon:before
+    {
+        content: "\E03a";
+    }
+
+    #button-home ul {
+        overflow: hidden;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    #button-home ul li {
+        width: 32%;
+        float: left;
+        list-style: none;
+    }
+
+
+    #button-home .km-button .km-icon {
+          margin: 0 auto .326em;
+          display: block;
+    }
+
+    #button-home ul li p {
+        padding: 0;
+    }
+
+</style>
+
+
+
+
+
+<style>
+    #scrollview-home .photo {
+        margin: 0;
+        height: 170px;
+        display: inline-block;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .km-wp #scrollview-home .photo {
+        height: 15em;
+    }
+
+    .photo1 {background-image: url("http://lorempixel.com/400/200/sports");}
+    .photo2 {background-image: url("http://lorempixel.com/400/200/people");}
+    .photo3 {background-image: url("http://lorempixel.com/400/200/city");}
+    .photo4 {background-image: url("http://lorempixel.com/400/200/food");}
+
+
+    #scrollview-container {
+        margin: 0px 0 1em 0;
+        padding-bottom: 20px;
+        padding-top: 0px;
+        background: rgba(0,0,0,.1);
+        border: 1px solid rgba(0,0,0,.3);
+        border-width: 1px 0;
+        box-shadow: 0 1px 1px rgba(255,255,255,.3);
+    }
+
+    .km-flat #scrollview-container {
+        background: transparent;
+        border-width: 0;
+        box-shadow: none;
+    }
+
+    .km-ios #scrollview-container {
+        background: url(../content/shared/images/patterns/pattern1.png);
+        box-shadow: 0 0 2px rgba(255,255,255,.5), inset 0 0 7px #000;
+    }
+
+    #scrollview-home .km-ios .km-content {
+        background: #bbb;
+    }
+    .km-android .km-list .album-set a {
+        background-color: #277692;
+    }
+    .km-ios .km-list .album-set a {
+        background-color: #bbb;
+    }
+    .km-ios #scrollview-home .km-navbar {
+        background: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0, rgba(255,255,255,.5)), color-stop(.06, rgba(255,255,255,.45)), color-stop(.5, rgba(255,255,255,.2)), color-stop(.5, rgba(255,255,255,.15)), color-stop(1, rgba(100,100,100,0))), url(../content/shared/images/patterns/pattern5.png);
+        background: -moz-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,.45) 6%, rgba(255,255,255,.2) 50%, rgba(255,255,255,.15) 50%, rgba(100,100,100,0)), url(../content/shared/images/patterns/pattern5.png);
+    }
+    .km-ios #scrollview-home .km-navbar .km-button
+    {
+        background-color: #000;
+    }
+    .km-ios #scrollview-home .km-content {
+        background: url(../content/shared/images/patterns/pattern6.png);
+        box-shadow: inset 0 0 30px #000;
+    }
+
+    .km-ios #scrollview-container .km-pages .km-current-page {
+        background-color: #ff009c;
+    }
+    .km-ios #scrollview-container .km-pages {
+        padding-top: 18px;
+    }
+    .km-ios #scrollview-home .km-view-title
+    {
+        color: #fff;
+        text-shadow: 0 -1px rgba(0,0,0,.5);
+    }
+</style>
+

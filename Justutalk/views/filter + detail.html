@@ -1,0 +1,73 @@
+<div data-role="view"  data-layout="main"  data-title="Filter" data-show="showFilter">
+    <h1>hello</h1>
+    <ul id="listViewContainer"> </ul>
+</div>
+
+<script type="text/x-kendo-template" id="foo-template">
+    <a onclick="goTo('detail.html')" >#: data.name #</a>
+</script>
+
+<script type="text/x-kendo-template" id="foo-template-2">
+
+     <a href="\#detailView?id=#: data.id #">#: data.name # </a>
+
+</script>
+
+
+
+
+
+<script>
+
+        function getRateDetails(e){
+            var id = e.view.params.id;
+            var item = foo.get(id);
+
+            $("#rate-name").html(item.name);
+            console.dir(id);
+            console.dir(foo.get(id));
+        }
+        function showFilter(e) {
+
+            $('#listViewContainer').kendoMobileListView({
+
+                dataSource: new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: "http://excitenet.co.uk/get-json",
+                            dataType: "jsonp"
+                        }
+                    },
+                    schema: {
+                        data:'data',
+                        total: "total",
+                        model: {
+                            id: "id",
+                            fields: {
+                                id: { type: "number" },
+                                name: { type: "string" }
+                            }
+                        }
+                    }
+
+                }),
+
+
+                template: kendo.template($("#foo-template").html()),
+                //template: '#: name #',
+                filterable: {
+                    "field": "name",
+                    "autoFilter": true,
+                    "operator": "contains"
+                }
+            });
+        }
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="KendoUI" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://C:/SDKs/telerik.kendoui.professional.2014.2.716.trial" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://C:/SDKs/telerik.kendoui.professional.2014.2.716.trial" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="http://demos.telerik.com/kendo-ui/mobile-listview/angular">
+    <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.default.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.mobile.all.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2014.3.1411/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.3.1411/js/angular.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div kendo-mobile-application ng-app="kendoDemo">
+    <kendo-mobile-view k-title="'My Menu'" ng-controller="Mine">
+        <kendo-mobile-header>
+            <kendo-mobile-nav-bar>
+                <kendo-view-title></kendo-view-title>
+            </kendo-mobile-nav-bar>
+        </kendo-mobile-header>
+
+        <kendo-mobile-list-view k-load-more="true" k-data-source="source">
+            <div class="product" k-template>
+                <img src="../content/web/foods/{{dataItem.ProductID}}.jpg" alt="{{dataItem.ProductName}} image" class="pullImage"/>
+                <h3>{{dataItem.ProductName}}</h3>
+                <p>{{kendo.toString(dataItem.UnitPrice, "c")}}</p>
+            </div>
+        </kendo-mobile-list-view>
+
+    </kendo-mobile-view>
+
+
+    <script>
+        angular.module("kendoDemo", [ 'kendo.directives' ])
+                .controller("Mine", function($scope) {
+                    $scope.source = new kendo.data.DataSource({
+                        type: "odata",
+                        transport: {
+                            read: {
+                                url: "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                            }
+                        },
+                        serverPaging: true,
+                        pageSize: 50
+                    });
+                });
+    </script>
+
+    <style scoped>
+        .product h3 {
+            font-size: 1.3em;
+            line-height: 1.4em;
+            margin: 0;
+            padding: 0;
+            height: 1.3em;
+            overflow: hidden;
+        }
+        .product p {
+            font-size: 1em;
+            margin: 0;
+            padding: .3em 0 0;
+        }
+        .pullImage {
+            width: 64px;
+            height: 64px;
+            border-radius: 3px;
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+
+
+</body>
+</html>
