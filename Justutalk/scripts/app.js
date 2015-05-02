@@ -33,7 +33,7 @@ var App = (function () {
         //ref.close();
 		//alert('hello');
         
-        navigator.splashscreen.show();
+        //navigator.splashscreen.show();
 
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
