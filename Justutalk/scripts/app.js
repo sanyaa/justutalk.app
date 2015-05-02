@@ -29,9 +29,11 @@ var App = (function () {
 
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
-        //var ref = window.open('http://localhost:63342/Sushi/sushi-angular.html', '_blank', 'location=yes');
+        var ref = window.open('http://php.net', '_blank', 'location=yes');
         //ref.close();
-		//alert('hello');
+		alert('hello');
+        
+        navigator.splashscreen.show();
 
         // hide the splash screen as soon as the app is ready. otherwise
         // Cordova will wait 5 very long seconds to do it for you.
