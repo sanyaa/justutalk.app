@@ -29,9 +29,9 @@ var App = (function () {
 
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
-        var ref = window.open('http://php.net', '_blank', 'location=yes');
+        //var ref = window.open('http://php.net', '_blank', 'location=yes');
         //ref.close();
-		alert('hello');
+		//alert('hello');
         
         navigator.splashscreen.show();
 
