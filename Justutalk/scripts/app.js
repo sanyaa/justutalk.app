@@ -85,6 +85,12 @@ var App = (function () {
     alert('hello');
 
   });
+    
+   $("#in-app").bind('click',function(e){
+    alert('hello');
+	var ref = window.open('https://www.justutalk.net/user', '_blank', 'location=yes');
+       return false;
+  });  
 
 
 
@@ -92,6 +98,12 @@ var App = (function () {
 }());
 
 
+function _loadInApp(e){
+
+    var ref = window.open('https://www.justutalk.net/user/login', '_blank', 'location=yes');
+    return false;
+    
+}
 
 
 function goTo(view, e){

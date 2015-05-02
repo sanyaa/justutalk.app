@@ -64,6 +64,7 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
+    "ch.ti8m.documenthandler@0.2.2",
     "org.apache.cordova.battery-status",
     "org.apache.cordova.camera",
     "org.apache.cordova.console",

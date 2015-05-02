@@ -1,28 +1,15 @@
 <div data-role="view" data-title="Contacts" data-layout="main" >
 
     contacts
-    <!--<ul data-role="listview" data-style="inset" data-template="contactsTemplate" data-bind="source: ds"></ul>-->
-    <div data-role="pane" data-initial="#view1" data-layout="main" >
-        <div data-role="view" id="view1">
-            I am the 1st view
-        </div>
-        <div data-role="view" id="bar">
-            I am the 2nd view
-        </div>
-    </div>
+   
 
 
-    <a data-role="button" href="#view1"> View1</a>
+    <a data-role="button" href="#"  data-click="loadInApp(e)"> inApp</a>
+     <span data-role="button" data-click="loadInApp(e)"> inApp</span>
+    
+    
 </div>
 
-<div data-role="pane" data-initial="#view1" data-layout="main" >
-    <div data-role="view" id="view1">
-        I am the 1st view
-    </div>
-    <div data-role="view" id="bar">
-        I am the 2nd view
-    </div>
-</div>
 
 
 <!-- this is the template used by the listview. template items are automatically
