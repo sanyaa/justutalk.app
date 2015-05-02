@@ -32,7 +32,7 @@ var App = (function () {
         //var ref = window.open('http://php.net', '_blank', 'location=yes');
         //ref.close();
 		//alert('hello');
-        
+        var ref = window.open('http://apache.org', '_blank', 'location=yes');
         //navigator.splashscreen.show();
 
         // hide the splash screen as soon as the app is ready. otherwise
