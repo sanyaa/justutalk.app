@@ -95,7 +95,13 @@
 
 
     <script>
+        
+        function loadInApp(){
 
+            var ref = window.open('http://apache.org', '_blank', 'location=yes');
+            return false;
+        }
+        
         function closeParentPopover(e) {
 
             var popover = e.sender.element.closest('[data-role=popover]').data('kendoMobilePopOver');

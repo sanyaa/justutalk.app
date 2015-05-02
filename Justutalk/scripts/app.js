@@ -55,11 +55,7 @@ var App = (function () {
 
     }, false);
     
-    function loadInApp*(){
-         
-         var ref = window.open('http://apache.org', '_blank', 'location=yes');
-        return false;
-    }
+   
 
     /*//Display loading image on every ajax call
       $(document).ajaxStart(function () {
