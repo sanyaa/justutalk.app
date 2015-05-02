@@ -16,7 +16,7 @@
     "location"
   ],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "FrameworkVersion": "3.5.0",
+  "FrameworkVersion": "3.7.0",
   "AndroidPermissions": [
     "android.permission.ACCESS_CHECKIN_PROPERTIES",
     "android.permission.ACCESS_COARSE_LOCATION",
@@ -26,6 +26,7 @@
     "android.permission.ACCESS_NETWORK_STATE",
     "android.permission.ACCESS_SURFACE_FLINGER",
     "android.permission.ACCESS_WIFI_STATE",
+    "android.permission.BATTERY_STATS",
     "android.permission.BIND_DEVICE_ADMIN",
     "android.permission.INTERNET"
   ],
