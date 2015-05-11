@@ -2,7 +2,7 @@
  * Created by temp on 30/04/2015.
  */
 function mobileListViewFiltering() {
-    var ref = window.open('http://www.johnwargo.com', '_blank', 'location=yes');
+    //var ref = window.open('http://www.johnwargo.com', '_blank', 'location=yes');
     //App.showLoading();
     //application.hideLoading();
     //writes title of the displayed view to the console.

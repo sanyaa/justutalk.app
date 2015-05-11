@@ -1,21 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>html { font-size: 12px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.material.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.mobile.all.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+</head>
+<body>
 <div data-role="view" data-title="Magazines"
      data-init="mobileListViewResponsiveImages"
-     id="gallery-view" class="all-magazines" data-layout="main">
-    <!--<header data-role="header">
+     id="index" class="all-magazines">
+    <header data-role="header">
         <div data-role="navbar" class="header-text">
             Magazines
         </div>
-    </header>-->
+    </header>
 
     <ul id="magazines-list"></ul>
 </div>
 
-
 <script id="listview-template" type="text/x-kendo-template">
     <div data-bind="events: { click: onItemClick }">
         <img data-src="#= CoverURL #" width="30%" class="resimgs item-cover" />
-
-
+        <h3 class="magazine-name">#: Name #</h3>
+        <time class="magazine-time">#: Published() #</time>
     </div>
 </script>
 
@@ -32,6 +46,8 @@
     <img id="detailedImage" data-bind="attr: { data-src: CoverURL }" width="100%" class="resimgs" />
 </div>
 
+<script src="http://demos.telerik.com/kendo-ui/content/shared/js/everlive.all.js"></script>
+<script src="http://demos.telerik.com/kendo-ui/content/shared/js/everlive.images.js"></script>
 
 <script>
     // initialize the Backend Services SDK with an API Key
@@ -84,7 +100,7 @@
                 everliveImages.responsiveAll();
             },
             click: function(e) {
-                JustutalkMobile.main.getKendoApplication().navigate("#singleItem?uid=" + e.dataItem.uid);
+                app.navigate("#singleItem?uid=" + e.dataItem.uid);
             }
         });
     }
@@ -99,7 +115,7 @@
     }
 
 </script>
-<!--
+
 <style>
     .item-cover {
         float: left;
@@ -118,39 +134,11 @@
     .detailed-title {
         padding: 20px;
     }
-</style>-->
-
-<style>
-    .item-cover {
-        float: left;
-        margin-right: 2.5%;
-        width: 100%;
-    }
-
-    .magazine-name {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    .magazine-time {
-        color: #666;
-    }
-
-    .detailed-title {
-        padding: 20px;
-    }
+</style>
 
 
-    #gallery-view .km-list>li {
-        float: left;
-        position: relative;
-        width: 30%;
-        margin: 0 5px;
-        padding: 5px 0;
-        padding-left: 0 !important;
-        border: none !important;
-
-      }
-
-
-  </style>
+<script>
+    var app = new kendo.mobile.Application(document.body);
+</script>
+</body>
+</html>

@@ -1,22 +1,103 @@
-<div data-role="view" data-title="About" data-layout="main" >
+<div data-role="view" data-title="About"  data-layout="main" data-init="init">
 
     About
+    <a href="http://telerik.com/" data-role="button" data-rel="external">Visit KendoUI</a>
 
-    <!--<ul data-role="listview" data-style="inset"
-        data-template="aboutTemplate"
-        data-bind="source: ds">
+    <br />
+    
+    <a data-role="button" href="#popOverWidget" data-rel="popover">Select Genre</a>
 
+    <div id="popOverWidget" >
+        <div data-role="view">
+            <ul data-role="listview" >
+                <li><a href="">Comedy (9)</a></li>
+                <li><a href="">Action (10)</a></li>
+                <li><a href="">Romantic (5)</a></li>                    
+            </ul>
+        </div>
+    </div>
+    
+    <br />
+    
+    <a data-role="button" href="#popOverWidget2" data-rel="popover">Select Genre</a>
+    <div id="popOverWidget2" data-role="popover" data-popup="{'height':150}">
+        <div data-role="view">
+            <ul data-role="listview" >
+                <li><a href="">Comedy (9)</a></li>
+                <li><a href="">Action (10)</a></li>
+                <li><a href="">Romantic (5)</a></li>                    
+            </ul>
+        </div>
+    </div>
+    
+    
+    <br />
+    
+    
+    
+    <a data-role="button" href="#popOverWidget3" data-rel="popover">
+            Select Movie
+    </a>
 
+    <div id="popOverWidget3" data-role="popover" 
+         data-pane="{'transition':'zoom', 'layout':'popoverLayout'}"
+         data-popup="{'height':170}">
+        
+             <!-- Layout -->
+       <div data-role="layout" data-id="popoverLayout">
+          <div data-role="header"><a data-role="backbutton" > Back </a></div>
+          <div data-role="footer"></div>
+       </div>
+             <!-- main menu view-->
+        <div data-role="view" id="view-main" class="no-backbutton" >
+            <ul data-role="listview" >
+                <li><a href="#view-comedy">Comedy (3)</a></li>
+                <li><a href="#view-action">Action (2)</a></li>                  
+            </ul>
+        </div>
+             <!-- Comedy Menu View-->
+        <div data-role="view" id="view-comedy">                
+            <ul data-role="listview" >
+                <li><a href="#view-final?movie=Hangover III">Hangover III</a></li>
+                <li><a href="#view-final?movie=Scary Movie">Scary Movie</a></li>
+                <li><a href="#view-final?movie=Ted">Ted </a></li>                    
+            </ul>
+        </div>
+             <!-- Action Menu View-->
+         <div data-role="view" id="view-action">                
+            <ul data-role="listview" >
+                <li><a href="#view-final?movie=Iron Man 3">Iron Man 3</a></li>
+                <li><a href="#view-final?movie=After Earth">After Earth</a></li>                    
+            </ul>
+        </div>
+             <!-- Final View-->
+          <div data-role="view" id="view-final" data-show="finalViewShow">                  
+              <div>                      
+                  <h3>You selected: </h3>
+                  <h2> <span id="spanMovieName"> </span> </h2>
+              </div>                  
+        </div>            
+    </div>
 
-    </ul>-->
+    
+   
 
 </div>
 
-
-
-
-<!-- this is the template used by the listview. template items are automatically
-     wrapped in an <li> by Kendo UI Mobile -->
-<script type="text/x-kendo-template" id="aboutTemplate">
-    <a data-bind="click: alert">#: data.name #</a>
+<script>
+    function init(){
+        $('#popOverWidget').kendoMobilePopOver({
+            popup:{height:'130px'}});    
+    }
+    
+    function finalViewShow(e){
+        $('#spanMovieName').text("testing 123!");     
+    }
+    
 </script>
+
+<style>
+    
+  .no-backbutton .km-back { visibility: hidden; }  
+  .km-ios .km-popup.km-pane .km-header{padding-top:5px;}  
+</style>

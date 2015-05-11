@@ -1,0 +1,48 @@
+<script>
+
+/*
+     var loginOptions = {
+     url: "http://www.excitenet.co.uk/users-json/node/36",
+     requestType: "GET",
+     dataType: "json"
+     //httpHeader: "Content-Type", //for HTTP Basic authentication
+
+     //btoa function will convert the text to base 64 encoding
+     //headerValue: "Basic " + btoa(this.userName + ":" + this.password),
+     //headerValue: "application/x-www-form-urlencoded; charset=UTF-8",
+     //data: { username: userName, password: password},
+     //data: {'username=' + encodeURIComponent('admin') + '&password=' + encodeURIComponent('H4der222')),
+     //callBack: JustutalkMobile.userAccount.viewModel.fnLoginCallBack
+     };
+     JustutalkMobile.dataAccess.callService2(loginOptions);
+
+     //console.log(JustutalkMobile.userAccount.viewModel);
+    
+*/
+    
+</script>
+
+
+
+<div id="mainView" data-role="view"  data-model="observableViewModel" data-layout="main">
+    <input type="text" id="item" data-bind="value: item" />
+    <input type="text" id="quantity" data-bind="value: quantity" />
+    <br/>
+    <label data-bind="text: description"> </label>
+</div>
+
+<script>
+
+    var observableViewModel = kendo.observable({
+        item: "gold",
+        quantity: "10 grams",
+        description: function(){
+            return    "You bought " + this.get("quantity") + " of " + this.get("item") ;
+        }
+    });
+    //bind the view model
+    kendo.bind($("#mainView"),observableViewModel);
+
+
+    //var app = new kendo.mobile.Application(document.body);
+</script>

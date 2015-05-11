@@ -1,14 +1,84 @@
-<div data-role="view" data-title="Offers" data-layout="main" >
+<div data-role="view" data-title="Offers" data-layout="main" data-init="init" >
 
     offers
+    
+    
+    <a data-role="button" id="btnShare"  data-rel="actionsheet" href="#confirmationSheet">
+        Share        
+    </a> 
+    
+    <br/>
+    <!-- div to write output--->
+    <div id="output"> </div>    
+    
+    <ul data-role="actionsheet" id="confirmationSheet">
+            
+        <li>
+            <a data-action="shareOnTwitter">
+                Twitter
+            </a>
+        </li>
+        <li>
+            <a data-action="shareOnFB">
+                Facebook
+            </a>
+        </li>
+        <li>
+            <a data-action="justEmail">
+                Email
+            </a>
+        </li>
+            
+    </ul>
+    
+    
+    
+    <br />
+    
+     <a href="#myModalView" data-rel="modalview" data-role="button">
+           Open Modal View
+    </a>
+    <div data-role="modalview" id="myModalView">
+        <h2> Modal View... </h2>
+    </div>
+    
 
 </div>
 
 
 
+<script>
+    function shareOnTwitter(e){
+   output('twitter...'); 
+   output(e.target);
+}
 
-<!-- this is the template used by the listview. template items are automatically
-     wrapped in an <li> by Kendo UI Mobile -->
-<script type="text/x-kendo-template" id="offersTemplate">
-    <a data-bind="click: alert">#: data.name #</a>
+function shareOnFB(e){
+    output('FB...'); 
+    output(e.target);
+    
+}
+
+function justEmail(e){
+    output('Email...'); 
+   output(e.target);
+    
+}
+
+function output(data){
+    $("#output").append(data);
+    $("#output").append("<br/>");    
+}
+</script>
+
+
+<script>
+    
+    function init(){
+        $('#myModalView').kendoMobileModalView({
+            height:100,width:100, 
+            modal:false
+        }).data("kendoMobileModalView");
+    
+    }
 </script>

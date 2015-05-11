@@ -40,6 +40,21 @@ var App = (function () {
         // navigator.splashscreen.hide();
         //console.log(navigator);
 
+
+        /**
+         * Created by temp on 02/05/2015.
+         */
+        var userModel = kendo.observable({
+            item: "gold",
+            quantity: "10 grams",
+            description: function(){
+                return "You bought " + this.get("quantity") + " of "
+                    + this.get("item") ;
+            }
+        });
+        //bind the view model
+        kendo.bind($("#userView"),userModel);
+
         app = new kendo.mobile.Application(document.body, {
 
             // you can change the default transition (slide, zoom or fade)
@@ -86,7 +101,7 @@ var App = (function () {
 
   });
     
-   $("#in-app").bind('click',function(e){
+  $("#in-app").bind('click',function(e){
     alert('hello');
 	var ref = window.open('https://www.justutalk.net/user', '_blank', 'location=yes');
        return false;
@@ -95,7 +110,7 @@ var App = (function () {
 
 
   return app;
-}());
+})();
 
 
 function _loadInApp(e){
@@ -110,3 +125,24 @@ function goTo(view, e){
   console.log(e);
   App.navigate('views/' + view);
 }
+
+
+var User = (function(){
+
+    getusername = function(){
+
+        return 'admin';
+    }
+    getpassword = function(){
+
+        return '123456';
+    }
+
+    var user = {};
+    user.username = getusername();
+    user.password = getpassword();
+
+    return user;
+
+
+})();

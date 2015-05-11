@@ -6,8 +6,8 @@
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     <link href="styles/main.css" rel="stylesheet" />
 
-   <!-- <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css" />
-    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css" />
+   <!-- <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.default.min.css" />
      <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.min.css" />
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.default.min.css" />
     <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.mobile.all.min.css" /> -->
@@ -16,31 +16,83 @@
     <script src="http://cdn.kendostatic.com/2014.3.1411/js/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
     <script src="http://cdn.kendostatic.com/2015.1.408/js/kendo.all.min.js"></script>
-	
-    
-    <script src="http://demos.telerik.com/kendo-ui/content/shared/js/everlive.all.js"></script>
-   <script src="http://demos.telerik.com/kendo-ui/content/shared/js/everlive.images.js"></script>
-	--> 
+    -->
 
-    <script src="cordova.js"></script>
+
+
+    
+
+
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.3.1411/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.408/js/kendo.all.min.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>-->
-    <script src="kendo/js/kendo.mobile.min.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="kendo/js/kendo.mobile.min.js"></script>-->
+
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    <!--<script src="cordova.ios.js"></script>-->
+    <script src="cordova.js"></script>
+
+    <script>
+        //This global varibale MovieTickets will act as a name space for
+        //our application. Objects from other modules will be
+        //available as properties of this object.
+        //This way we lower the possibility of naming collisions
+        //when using our code in conjunction with other JavaScript libraries
+        var JustutalkMobile = JustutalkMobile || {};
+
+    </script>
+
+
+    <!--<script src="scripts/app.js"></script>-->
     <script src="scripts/rates.js"></script>
+    <script src="scripts/user.js"></script>
+
+    <script src="scripts/configuration.js"> </script>
+    <script src="scripts/common.js"> </script>
+    <script src="scripts/settings.js"> </script>
+    <script src="scripts/data-access.js"> </script>
+    <script src="scripts/user-account.js"> </script>
+    <script src="scripts/main.js"> </script>
+
+
+    <script src="http://demos.telerik.com/kendo-ui/content/shared/js/everlive.all.js"></script>
+    <script src="http://demos.telerik.com/kendo-ui/content/shared/js/everlive.images.js"></script>
+
 
 </head>
 <body>
 
     <div data-role="drawer" data-layout="main" id="my-drawer" style="width: 270px" >
         <div data-role="header">
-            <div data-role="navbar">
-                <a href="#views/home.html" data-icon="home">Home</a>
+            <div data-role="toolbar" id="my-drawer-toolbar" data-items='[
+                        {
+                            id: "back",
+                            type: "button",
+                            icon: "arrow-w",
+                            overflow: "never",
+                            align: "left",
+                            url: "#:back"
+                        },
+                        {
+                            type: "splitButton", id: "viewName", name: "viewName",  icon: "user", menuButtons: [
+                                { id: "option1", text: "Login" },
+                                { id: "option2", text: "Logout" },
+                                { id: "option3", text: "Register" }
+                            ],
+                            overflow: "never",
+                            align: "right"
+                        },
+
+
+                    ]'>
             </div>
+
         </div>
         <ul data-role="listview" data-style="inset" >
             <li data-icon="inbox"><a href="#views/home.html" data-transition="none">Home</a></li>
-            <li data-icon="star"><a href="#views/about.html" data-transition="none">About</a></li>
+            <li data-icon="star"><a href="views/about.html" data-transition="none">About</a></li>
             <li data-icon="inbox"><a href="#views/contact.html" data-transition="none">Contact</a></li>
             <li data-icon="star"><a href="#views/rates.html" data-transition="none">Rates</a></li>
             <li data-icon="inbox"><a href="#views/offers.html" data-transition="none">Offers</a></li>
@@ -54,8 +106,8 @@
         <ul data-role="listview" data-style="inset" data-type="group">
             <li>Sources
                 <ul>
-                    <li data-icon="inbox"><a href="#views/filter-complex.html" data-transition="none">Inbox</a></li>
-                    <li data-icon="star"><a href="#views/filter.html" data-transition="none">Starred Items</a></li>
+                    <li data-icon="inbox"><a href="#views/user.html" data-transition="none">User</a></li>
+                    <li data-icon="star"><a href="#views/UserAccount.html" data-transition="none">User Account</a></li>
                 </ul>
             </li>
         </ul>
@@ -63,12 +115,16 @@
 
     <div data-role="layout" data-id="main">
         <div data-role="header">
+
             <div data-role="navbar">
                 <a data-align="left" data-icon="arrow-w" data-role="backbutton" class="back-button"></a>
                 <a data-role="button" data-rel="drawer" href="#my-drawer" data-icon="drawer-button" data-align="left"></a>
 
                 <span data-role="view-title"></span>
+                <a data-align="right" style="display: none" class="mt-main-layout-btn-logoff"
+                   data-click="JustutalkMobile.userAccount.viewModel.logOff" data-role="button">Log Off</a>
             </div>
+
         </div>
 
         <!-- application views will be rendered here -->
@@ -79,33 +135,53 @@
                 <a href="views/contact.html" data-icon="contacts">Contacts</a>
                 <a href="views/info.html" data-icon="contacts">Info</a>
                 <a href="views/user.html" data-icon="favorites">User</a>
-                <a href="views/social.html" data-icon="favorites">Social</a>
+                <a href="views/UserAccount.html"><img src="images/user_profile.ico" height="30" width="30" />
+                    My Account
+                </a>
+                <a href="views/social.html" data-icon="about">Social</a>
             </div>
         </div>
     </div>
 
-
-
-
     <script>
-        // reset global drawer instance, for demo purposes
-        kendo.mobile.ui.Drawer.current = null;
+        document.addEventListener('deviceready', function () {
+            JustutalkMobile.main.initializeApp();
+            // reset global drawer instance, for demo purposes
+            kendo.mobile.ui.Drawer.current = null;
+        }, false);
+
+
         //jQuery("#my-drawer").data("kendoMobileDrawer").show();
     </script>
 
 
-    <script>
-                      
-        function closeParentPopover(e) {
-
-            var popover = e.sender.element.closest('[data-role=popover]').data('kendoMobilePopOver');
-            popover.close();
-        }
-    </script>
 
 
     <style>
 
+        .km-user:after, .km-user:before
+        {
+            content: "\e219";
+        }
+
+
+        #my-drawer-toolbar .km-root .k-toolbar
+        {
+            line-height: 2.0em;
+        }
+
+        .km-ios7 .km-popup-wrapper {
+            padding: 0;
+        }
+
+        .km-popup-wrapper {
+             padding: 0;
+        }
+
+        .k-popup {
+             border-style: none;
+             border-width: 0;
+        }
 
         #my-drawer .km-content,#my-drawer .km-header
         {
@@ -182,6 +258,54 @@
             color: white;
         }
     </style>
+
+
+
+    <style>
+        .km-android #toolbar-mobile {
+            -webkit-box-direction: normal;
+            -moz-box-direction: normal;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+        }
+
+        #back .km-arrow-w:after,
+        #back .km-arrow-w:before
+        {
+            content: "\e013";
+        }
+
+        .km-flat #back .km-arrow-w
+        {
+            font-size: 1em;
+        }
+
+        .km-previous:after,
+        .km-previous:before
+        {
+            content: "\e011";
+        }
+
+        .km-next:after,
+        .km-next:before
+        {
+            content: "\e012";
+        }
+
+        .km-ios7 #viewName_wrapper,
+        .km-flat #viewName_wrapper
+        {
+            margin-left: -.5em;
+        }
+
+        .mail-content h2,
+        .mail-content h3,
+        .mail-content p {
+            margin-top: 1em;
+        }
+    </style>
+
+
 
 </body>
 </html>
